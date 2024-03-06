@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="breakdown"></div>
-    <div id="date"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GFA3 PLAZA</title>
+    </head>
+    <body>
+        <script>
+            var min=0;
+            var max=1000;
+            var random_int=Math.floor(Math.random()*(max-min+1)-min);
+            var length=random_int.toString().length;
+            document.write("Randomly generated number here: "+random_int);
 
-    <script>
-    var min = 0; 
-    var max = 1000;
-    var random_int = Math.floor(Math.random() * (max - min +1)-min);
-    var length=random_int.length; 
-    document.write("Randomly generated number here: "+random_int);
+            var thousands = random_int.toString().charAt(0);
+            var hundreds = random_int.toString().charAt(1);
+            var tens = random_int.toString().charAt(2);
+            var ones = random_int.toString().charAt(3);
 
-    var thousands=random_int.charAt(0);
-    var hundreds=random_int.charAt(1);
-    var tens=random_int.charAt(2);
-    var ones=random_int.charAt(3); 
+            if (length==4) {
+                document.write("<br> Breakown: " +random_int+ ", 000, 00, 0");
+            }
+            else if (length==3) {
+                document.write("<br> Breakown: " +thousands+ "00, "+hundreds+ "0, " + tens);
+            }
+            else if (length==2) {
+                document.write("<br> Breakdown: " +thousands+ "0, "+hundreds);
+            }
+            else {
+                document.write("<br> Breakdown: " +thousands);
+            }
 
-   if (length==4){
-    document.getElementById("breakdown").innerText= "<br> Breakdown: "+ random_int + "," + "000" + "," + "00" +"," + "0"; 
-   }
-   else if (length==3){
-    document.getElementById("breakdown").innerText= "<br> Breakdown: "+ thousands + "00," + hundreds + "0," + tens ; 
-   }
-   else if(length==2){
-    document.getElementById("breakdown").innerText= "<br> Breakdown: "+ thousands + "0, " + hundreds  ; 
-   }
-   else{ 
-    document.getElementById("breakdown").innerText= "<br> Breakdown: "+ tens ; 
-   }
-   var d=new Date();
-   document.getElementById(date).innerHTML=d;
-  
-
-</script>
-</body>
+            var d=new Date()
+            document.write("<br>"+ d); 
+        </script>
+    </body>
+</html>
